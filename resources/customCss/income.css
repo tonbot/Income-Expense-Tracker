@@ -1,0 +1,105 @@
+
+body{
+    overflow-x: hidden;
+}
+
+.frmContainer label{
+    font-weight: bold;
+    font-size: 12;
+}
+.note{
+    background-color: #FFC482;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #3F4453;
+    font-weight: bold;
+    font-size: 12;  
+}
+.frmContainer input{
+    font-size: 12;
+    font-weight: bold;
+}
+.frmContainer input:focus{
+    border-color:  #FFC482;
+    box-shadow: none;
+}
+#description:focus{
+    border-color:  #FFC482;
+    box-shadow: none;
+}
+#description{
+    font-size: 12;
+    font-weight: bold;
+}
+.btnAdd{
+    background-color: #fff;
+    color: #2B3A67 ;
+    border: 2px solid #2B3A67;
+    font-weight: bold;
+}
+.btnAdd:hover{
+    background-color: #2B3A67;
+    color: #fff;
+    box-shadow: none;
+    font-weight: bold;
+}
+.btnEdit{
+    background-color: #FFC482;
+    color: #FFF ;
+    font-weight: bold;
+}
+.btnEdit:hover{
+    background-color: #FFC482;
+    color: #2B3A67;
+    box-shadow: none;
+    font-weight: bold;
+    border: 2px solid #2B3A67;
+}
+table th 
+    {
+        font-size: 12px;
+        text-align: center;
+    }
+table td
+    {
+        font-size: 12px;
+    }
+tr.thead{
+    background-color: #2B3A67;
+    color: #fff;
+}
+.btn.btn-primary.shadow-sm:hover {
+    box-shadow: 5px 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.btn.btn-primary.save{
+    background-color: #2B3A67;
+    border: 2px solid #2B3A67;
+    color: #fff;
+    font-weight: bold;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-top-right-radius: 7px !important;
+    border-bottom-right-radius: 7px !important;
+}
+.btn.btn-primary.save:hover{
+    background-color: #FFC482;
+    color: #2B3A67;
+}
+.btn.btn-primary.save:focus{
+   box-shadow: none;
+   border: none;
+}
+.form-control.newCategory{
+    border: 1px solid #2B3A67; 
+    box-shadow: none;
+    font-size: 17px;
+
+}

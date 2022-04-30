@@ -1,0 +1,72 @@
+
+body{
+    overflow-x: hidden;
+}
+.section2{
+    margin-top: 50px;
+    padding-left: 35px;
+    padding-top: 30px;
+    height:580px;
+}
+.searchContainer {
+    position: absolute;
+    left:39vw;
+    top:133px;
+}
+ .searchContainer > ul {
+    list-style: none;
+    display: flex;
+    margin-top: 20px;
+}
+.searchContainer > ul li {
+    width: 150px;
+    margin-right:20px;
+}
+
+.tableContainer{
+    width: 75vw;
+}
+.heading{
+    background-color:#3F4453 ;
+    color:aliceblue;
+}
+.modal-body{
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 80px;
+}
+.dateYerContainer > ul {
+    list-style: none;
+    display: flex;
+}
+.dateYerContainer > ul li {
+    width: 170px;
+    margin-right:20px;
+}
+.pagination{
+    position: absolute;
+    left: 75%;
+}
+.pagination > li{
+    background-color:#3F4453;
+    color: aliceblue;
+    padding-top:5px;
+    padding-bottom:5;
+    padding-left:10px;
+    padding-right:10px;
+    margin-left: 7px;
+    border-radius: 5px;
+}
+.budjectDescription{
+    margin-bottom: 0px;
+}
+.budjectDescription ul {
+   list-style: none;
+   display: flex;
+   text-align: center;
+   margin-bottom: 0px;
+   margin-top: 40px;
+}
+.budjectDescription ul li{
+     margin-right:80px;
+}

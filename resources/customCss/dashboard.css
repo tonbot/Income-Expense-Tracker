@@ -1,0 +1,73 @@
+/* dsktop styling start here */
+ @media screen and (min-width:1024px){
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body
+{
+    margin: 0px;
+    padding: 0px;
+}
+.sidenavContainer
+{
+    height: 700px;
+}
+.container2
+{
+    padding:0px;
+}
+.itemMother
+{
+    width:100%;
+    height:auto;
+    background-color:white;
+    padding-top: 40px; 
+    padding-bottom: 40px;
+    margin-right: 0px;
+    margin-left: 40px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+}
+.itemMother:hover
+{
+    background-color: aliceblue; 
+}
+.itemsContainer
+{ 
+    padding: px;
+    padding-left: 90px;
+}
+.itemsContainer .row 
+{
+  margin-top: 20px;
+  margin-bottom: 30px; 
+}
+hr {
+    background-color: white;
+    margin-top: -1px;
+}
+.logout {
+    display: none;
+}
+}  
+/* dsktop styling ends here */
+
+/* mobile styling start here */
+ @media screen and (min-width:200px) and (max-width:480px) {
+    .body 
+     {
+        overflow:hidden;
+     }
+     .container2
+    {
+        display:none;
+    }
+    .sidenavContainer
+    {
+        height: 100vh;
+    }
+ }
+  
+/* mobile styling  ends here */
