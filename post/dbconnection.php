@@ -63,30 +63,6 @@ function register($firstName, $lastName, $email, $phoneNumber, $password) // reg
 
 ###############################################################################################################
  
-    function login($email, $password) // login user;
-        { 
-            $query  = "SELECT * FROM user WHERE email =:email AND password =:password" ;
-            $result = $this->pdo->prepare($query);
-            $result->execute
-                ([
-                    'email'    => $email,
-                    'password' => $password,
-                ]);
-            $result->setFetchMode(PDO::FETCH_ASSOC);
-            $result= $result->fetchall();
-            $count=sizeof($result);
-                if ($count > 0)
-                    {
-                        return json_encode($result);
-                    }
-                else
-                    {
-                        return 'user not found';
-                    }
-            
-    
-        } //Login user ends here
- 
 
 
 ###############################################################################################################

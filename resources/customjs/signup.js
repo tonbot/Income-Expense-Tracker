@@ -32,8 +32,7 @@ $(document).ready(function(){
     );
 ///////////////////////////////////////ajax send data to the server for processing
     function signup_ajax(firstName,lastName,email,phoneNumber,password)
-    {
-            
+    {       
             let xhr=new XMLHttpRequest();
             let fd=new FormData();
                         fd.append("firstName", firstName);
@@ -42,7 +41,7 @@ $(document).ready(function(){
                         fd.append("phoneNumber", phoneNumber);
                         fd.append("password", password);
         
-            //////creating xhr request the server
+            /** creating xhr request the server */
                         xhr.open("post", "http://localhost/bta/view/post/signup_post.php", true);
                         xhr.onreadystatechange=function(){
                                     if (xhr.readyState=="4" && xhr.status=="200") //if connection was success
@@ -51,16 +50,13 @@ $(document).ready(function(){
                                             console.log(response);
                                             if (response==="success")
                                                 {
-
                                                     $('#error').show();
-                                                    $('#error').text("Registration Successful.");
-                                                
+                                                    $('#error').text("Registration Successful.");                                               
                                                 }
                                             else if (response==="exist")
                                                 {
                                                     $('#error').show();
                                                     $('#error').text("User already exist.");
-
                                                 }
                                             else 
                                                 {

@@ -3,15 +3,18 @@
 {
     height: 700px;
     background-color: #2B3A67; 
+    margin: 0;
+    padding: 0;
 
 }
+
 /* Active/current link */
 .logoContainer{
     height: 90px;
     background-color: #FFC482;
     width: 150px;
     position: relative;
-    left:30;
+    left:50;
    text-align: center;
     font-size: 30px;
     font-weight: bold;
@@ -22,7 +25,7 @@
 .navItem
 {
     line-height: 45px;
-    padding-left:30px;
+    padding-left:50px;
     /* border-bottom: solid 1px  aliceblue; */
     color:aliceblue;
     font-size: 12px;
@@ -32,7 +35,8 @@
 {
     background-color: #66999B;
     color:white;
-    padding-left: 40px;
+    padding-left: 70px;
+    width: 100%;
 
 }
 .navItem:hover > a{
@@ -47,10 +51,10 @@
     color:black;
 }
 .navItem.active{
-    padding-left: 40px;
-    color:#FFC482;
+    padding-left: 70px;
+    color:aliceblue;
+    background-color: #66999B;
 }
-
 .mt-4 i{
     color:#FFC482;
 }

@@ -8,4 +8,32 @@ body{
     padding-top: 15px;
     padding-bottom: 15px;
 }
-
+.fa.fa-user{
+    position: absolute;
+    left: 1050;
+    top:10px;
+    background-color: #2B3A67 !important; 
+}
+.topnav-action{
+    background-color: #fff;
+    width: fit-content;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1000;
+    top:30px;
+    left: 930;
+    padding: 10px;
+    padding-top: 15px;
+    line-height: 10px;
+    display: none;
+    
+}
+.topnav-action p {
+    color: #bbb; 
+    font-size: 12px;
+}
+.topnav-action p:hover{
+    color: #2B3A67;
+    font-weight: bold;
+    transition: 0.5s font-weight; 
+}

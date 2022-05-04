@@ -23,128 +23,45 @@
             }
     }
 
-###############################################################################################################
+/** login */
+function login($email, $password) 
+{    
+    $query  = "SELECT * FROM user WHERE email = :email AND password = :password" ;
+    $result = $this->pdo->prepare($query);
+    $result->execute
+        ([
+            'email'    => $email,
+            'password' => $password,
+        ]);
+    return   $this->validateResponse($result);
+    
+} //Login user ends here
 
-###############################################################################################################
-  ///start of income pagination
-  function get_data($user_id, $current_page)
-  {
-      ///Getting the total number of records
-    $query1="SELECT * FROM income WHERE user_id='$user_id'";       
-    $result=$this->pdo->query($query1);
-    $result->setFetchMode(PDO::FETCH_ASSOC);
-    $result=$result->fetchAll();
-    $number_Of_records= sizeof($result);       
-      ///if number of records is less than 5 no pagination is created
-    if ($number_Of_records <= 5)
+
+
+
+
+
+
+
+
+/** validate database response */
+public function validateResponse($result){
+    $response = new stdClass();
+    if ($result -> rowCount() > 0)
         {
-           foreach($result as $data)
-           {
-               $pagination='<tr>';
-               $pagination.='<td>'.$data['id'] .'</td>';
-               $pagination.='<td>'.$data['income_type'].'</td>';
-               $pagination.='<td>'.$data['income_amount'].'</td>';
-               $pagination.='<td>'.$data['user_id'].'</td>'; 
-               $pagination.='<td>'.$data['income_date'].'</td>';
-               $pagination.='<td><button  type="button" class="btn btn-primary" onclick=edit('.$data['id'] .')>Edit</button>
-               <button  type="button" class="btn btn-danger" onclick=remove('.$data['id'] .')>Delete</button></td>';
-               $pagination.='</tr>';
-               $response[]=array(
-                'data' => $pagination
-            );
-
-           }
-           
-           return ($response);
-        } ///end if
-
-     ///if number of records is greater than 5 then pagination  start here
+            $result -> setFetchMode(PDO::FETCH_ASSOC);
+            $result = $result -> fetchall();
+            $response -> data = $result;
+            return $response;
+        }
     else
         {
-
-            $records_per_page=5; //total records display per page
-            $number_of_pages = ceil($number_Of_records/$records_per_page); //calculating total page
-            $previous_records=($current_page-1)*$records_per_page; //calculating previous records
-            
-            ///if previous records is equal to zero then current page is equal 1
-            if  ( $previous_records == 0)
-                    {
-                        $current_page=1;
-                        $query1="SELECT * FROM income WHERE user_id='$user_id' LIMIT $current_page, $records_per_page" ;       
-                        $result=$this->pdo->query($query1);
-                        $result->setFetchMode(PDO::FETCH_ASSOC);
-                        $result=$result->fetchAll();
-                        //SELECTING RECORDS FOR OUTPUT
-                            foreach($result as $data)
-                                {
-                                    $pagination='<tr>';
-                                    $pagination.='<td>'.$data['id'] .'</td>';
-                                    $pagination.='<td>'.$data['income_type'].'</td>';
-                                    $pagination.='<td>'.$data['income_amount'].'</td>';
-                                    $pagination.='<td>'.$data['user_id'].'</td>'; 
-                                    $pagination.='<td>'.$data['income_date'].'</td>';
-                                    $pagination.='<td><button  type="button" class="btn btn-primary" onclick=edit('.$data['id'] .')>Edit</button>
-                                    <button  type="button" class="btn btn-danger" onclick=remove('.$data['id'] .')>Delete</button></td>';
-                                    $pagination.='</tr>';             
-                                    $response[]=array('data' => $pagination );
-                        
-                                }
-                            //creating page link
-                                  $link =''; $i=1;
-                          while( $i <=  $number_of_pages) 
-                                {                                              
-                                   $link .='<li class="pag" onclick=pagi('.$user_id.',' .$i. ')>';
-                                   $link .= $i;
-                                   $link .='</li>';
-                                   $pagelink[]=array('pagelink' => $link );
-                                   $i++ ;
-                                }
-                                   $response_data[]=array($response,$link);                            
-                        return ($response_data);
-                         
-                    } 
-                else
-                    {    
-                            $query1="SELECT * FROM income WHERE user_id='$user_id' LIMIT $previous_records,$records_per_page" ;       
-                            $result=$this->pdo->query($query1);
-                            $result->setFetchMode(PDO::FETCH_ASSOC);
-                            $result=$result->fetchAll();
-                            //SELECTING RECORDS FOR OUTPUT
-                            foreach($result as $data)
-                                {
-                                    $pagination='<tr>';
-                                    $pagination.='<td>'.$data['id'] .'</td>';
-                                    $pagination.='<td>'.$data['income_type'].'</td>';
-                                    $pagination.='<td>'.$data['income_amount'].'</td>';
-                                    $pagination.='<td>'.$data['user_id'].'</td>'; 
-                                    $pagination.='<td>'.$data['income_date'].'</td>';
-                                    $pagination.='<td><button  type="button" class="btn btn-primary" onclick=edit('.$data['id'] .')>Edit</button>
-                                    <button  type="button" class="btn btn-danger" onclick=remove('.$data['id'] .')>Delete</button></td>';
-                                    $pagination.='</tr>';                
-                                    $response[]=array('data' => $pagination);
-                                }
-                                //creating page link
-                                      $link =''; $i=1;
-                          while( $i <=  $number_of_pages)
-                               {    
-                                    $link .='<a href="#">';
-                                    $link .='<li class="pag" onclick=pagi('.$user_id.',' .$i. ')>';                                              
-                                    $link .= $i;
-                                    $link .='</li>';
-                                    $link .='</a>';
-                                    $pagelink[]=array('pagelink' => $link);
-                                              $i++ ;
-                               }
-                                    $response_data[]=array($response,$link);           
-                         return ($response_data);
-                    }
-
-
+            $response -> data = 0;
+            return $response;
         }
 
-  } //end of income pajination
-
-
+}
 
 
 

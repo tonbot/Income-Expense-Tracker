@@ -1,11 +1,8 @@
 
 <!-- including bootstrap resources -->
-<?php 
-              header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-              header("Cache-Control: post-check=0, pre-check=0", false);
-              header("Pragma: no-cache");
-              require_once ('resources/include.php');
-     
+<?php
+    session_start();
+    require_once ('resources/include.php');   
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +51,7 @@
                                 </div>
                                 <button class="btn btn-primary shadow-sm " type="button" data-toggle="modal" data-target="#newIcome"><i class="fas fa-plus fa-1x mr-2"></i> Add Income</button>
                              </div>
+                             
                              </div>
                          </div><!-- end of row -->
 
@@ -93,10 +91,17 @@
    <!-------------------------------------------------> 
             
             </div>
-    </div>
+    </div> 
+
+    <!-- set user identity-->
+    <script>
+        var user = "<?php echo ($_SESSION["user"])?>" 
+        document.getElementById("users").innerHTML  = user;
+     </script>
+    <!-- user -->
+
 </body>
 </html>
-
 
 
  <!-------------------------------------------------> 
@@ -117,25 +122,27 @@
         <div class="frmContainer">
             <form action="" method="post">
                 <div class="form-group">
-                    <label for="my-select">Description</label>
-                    <select id="description" class="form-control" name="" required>
+                    <label for="my-select">Category: *</label>
+                    <select class="form-control" name="" id="category" required>
                         <option>Salary/Wages</option>
                         <option>other</option>
                     </select>
                 </div>
                 <div>
-                    <label for="decription-other">Enter Description</label>
-                    <input class="form-control" type="text" name="" id="description-other" placeholder= "Contribution" required>
+                    <label for="decription-other">Enter Description: *</label>
+                    <input class="form-control" type="text" name="" id="description" placeholder= "Enter description" required>
+                    <small class="form-text text-muted mb-2">Please provide a description of this income if any:</small>
                 </div>
-                <div>
-                    <label for="Amount mt-2">Amount</label>
+                <div class="mb-2">
+                    <label for="Amount mt-2">Amount: *</label>
                     <input class="form-control" type="number" name="" id="amount" required>
                 </div>
                 <div>
-                    <label for="transaction_date mt-2">Transaction Date</label>
-                    <input class="form-control datepicker" type="text" name="" id="transaction-date" required>
+                    <label for="transaction_date mt-2">Transaction Date: *</label>
+                    <input class="form-control datepicker" type="text" name="" id="transaction_date" required>
                     
                 </div>
+                <small class="form-text text-muted text-center" id="feedback">Please fill all the form</small>
 
             </form>
         </div>
@@ -152,4 +159,4 @@
   </div>
 </div>
  <!-------------------------------------------------->
-  
+ 

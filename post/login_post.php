@@ -5,36 +5,38 @@ try
         {          
              $email = $_POST['email'];
              $password = $_POST['password'];
-              if (isset($email) && isset($password) )
+              if (isset($email) && $email !== "" && $password !== "" && isset($password) )
                 {    
+                    $session = null;
                     #making database connection
-                    include_once "dbconnection.php";
-                    $connection=new dbconn;
+                    include_once "../controller/dbconnection.php";
+                    $connection = new dbconn;
                     #if connection not null
                     if ($connection != null)
                         {      
+                            
                               $result=$connection->login($email,$password);
-                              switch ($result)
-                                {
-                                    case 'user not found':
-                                        echo 'user not found';
-                                        break;
-                                    default:
-                                        echo $result;
-                                        break;                                                  
-                                    
-                                }
+                              $connection = null;
+                              if( $result -> data != 0 ){
+                                session_start();
+                                $_SESSION["user"] = $result -> data[0]["firstName"];
+                                $_SESSION["id"] = $result -> data[0]["id"];
+                                echo (json_encode("true"));
+                              }else{
+                                  echo json_encode("false");
+                              }
                         }
+                    else{
+                        #if connection is null
+                        echo($connection);
+                    }
                 }
         }
     
 }
    catch(ERRMODE_EXCEPTION $e)
     {
-
         echo $e;
-
     }
-             //echo ($firstName. $lastName. $email. $phoneNumber.$password);
 
 ?>
