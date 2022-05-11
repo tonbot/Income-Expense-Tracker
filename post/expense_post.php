@@ -20,22 +20,22 @@ try
                   {
                         case "sc": 
                             /** save category */
-                                $incomeType = $_POST['category'];
+                                $expenseType = $_POST['category'];
                                 if ($connection != null) { 
-                                    $result=$connection->add_income_category($incomeType, $user_id);
+                                    $result=$connection->add_expense_category($expenseType, $user_id);
                                     echo json_encode($result);
                                 }
                         break;
 
                         case "si" :
-                            /** save income */
-                            $incomeType = $_POST['category'];
-                            $incomeAmount = $_POST['amount'];
-                            $incomeDate = $_POST['transaction_date'];
+                            /** save expense */
+                            $expenseType = $_POST['category'];
+                            $expenseAmount = $_POST['amount'];
+                            $expenseDate = $_POST['transaction_date'];
                             $description = $_POST['description'];
-                                if (isset($incomeType) && isset( $incomeAmount) && isset($incomeDate) && isset($user_id)) {   
+                                if (isset($expenseType) && isset( $expenseAmount) && isset($expenseDate) && isset($user_id)) {   
                                     if ($connection != null) {     
-                                            $result=$connection->add_income($incomeType, $incomeAmount, $incomeDate, $description, $user_id);
+                                            $result=$connection->add_expense($expenseType, $expenseAmount, $expenseDate, $description, $user_id);
                                             echo json_encode($result);
                                         }
                                 }
@@ -44,7 +44,7 @@ try
                         case "sec": 
                             /** select category */
                             if ($connection != null) { 
-                                $result= $connection -> get_income_category($user_id);
+                                $result= $connection -> get_expense_category($user_id);
                                 echo json_encode($result);
                             }
                         break;
@@ -52,23 +52,23 @@ try
                         case "de": 
                             /** select category */
                             if ($connection != null) { 
-                                $income_id = $_POST['income_id'];
-                                $result= $connection -> delete_income($user_id,$income_id);
+                                $expense_id = $_POST['expense_id'];
+                                $result= $connection -> delete_expense($user_id,$expense_id);
                                 echo json_encode($result);
                             }
                         break;
 
                         case "up" :
                             /** save income */
-                            $incomeType = $_POST['category'];
-                            $incomeAmount = $_POST['amount'];
-                            $incomeDate = $_POST['transaction_date'];
+                            $expenseType = $_POST['category'];
+                            $expenseAmount = $_POST['amount'];
+                            $expenseDate = $_POST['transaction_date'];
                             $description = $_POST['description'];
-                            $income_id = $_POST['income_id'];
+                            $expense_id = $_POST['expense_id'];
 
-                                if (isset($incomeType) && isset( $incomeAmount) && isset($incomeDate) && isset($user_id) && isset($income_id) ) {   
+                                if (isset($expenseType) && isset( $expenseAmount) && isset($expenseDate) && isset($user_id) && isset($expense_id) ) {   
                                     if ($connection != null) {     
-                                            $result=$connection->update_income($incomeType, $incomeAmount, $incomeDate, $description, $user_id, $income_id);
+                                            $result=$connection->update_income($expenseType, $expenseAmount, $expenseDate, $description, $user_id, $expense_id);
                                             echo json_encode($result);
                                         }
                                 }
@@ -84,7 +84,7 @@ try
                 #if connection not null
              $user_id = $_GET['userId'];
             if ($connection != null) { 
-                $result= $connection -> get_income($user_id);
+                $result= $connection -> get_expense($user_id);
                 echo json_encode($result);
             }
 

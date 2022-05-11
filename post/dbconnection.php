@@ -11,7 +11,7 @@
             {
             
                 $host="localhost";
-                $dbname="budjecttracking";
+                $dbname="income_expensetracker";
                 $password="";
                 $user="root";
                 $this->pdo=new PDO("mysql:host=$host; dbname=$dbname", $user, $password );
@@ -67,44 +67,7 @@ function register($firstName, $lastName, $email, $phoneNumber, $password) // reg
 
 ###############################################################################################################
        
-function addIncome($incomeType,$incomeAmount,$incomeDate,$description,$user_id) // register user
-{  
-    ///////////////check if email or phonenumber is already registered
-   $query      = "SELECT * FROM income WHERE user_id='$user_id' AND income_type='$incomeType' AND income_date='$incomeDate' ";
-   $result_set = $this->pdo->query($query);
-   $result     = $result_set->fetchall();
-   $count      = sizeof($result);
 
-       if($count > 0)
-           {
-               
-                
-                return "Income type already exist for this date";
-                   
-           } 
-       else
-           {  ///// Creating new User
-               $query     ="INSERT INTO income(user_id, income_type, income_amount, income_date, income_description) VALUES (:user_id, :incomeType, :incomeAmount, :incomeDate, :description)";
-               $statement = $this->pdo->prepare($query);
-               $statement->execute
-                   ([
-                       'user_id'        => $user_id,
-                       'incomeType'     => $incomeType,
-                       'incomeAmount'   => $incomeAmount,
-                       'incomeDate'     => $incomeDate,
-                       'description'    => $description,
-                   ]);
-                       if ($statement)
-                           {
-                               return "success";
-                           }
-                       else
-                           {
-                               return "failed";
-                           }
-           }
-
-}   //Register function ends here.
 
 ###############################################################################################################
 

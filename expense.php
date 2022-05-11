@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BUDJECT</title>
     <link rel="stylesheet" href="resources/customCss/income.css">
-    <script src="resources/customJs/income.js"></script> 
+    <script src="resources/customJs/expense.js"></script> 
  
 </head>
 <body>
@@ -30,7 +30,7 @@
                     <?php require_once('resources/topnav/topnav.php')?>
                      <!-- topnav ends here -->
                      <!-- title -->
-                     <h5 class="pl-3 my-3 title">Income</h5>
+                     <h5 class="pl-3 my-3 title">Expense</h5>
                      <!-- title -->
                      <div class= "px-3 pr-4"> <!-- padding container -->
                      <div class="sectionContainer bg-white  py-3 px-5 shadow-sm">
@@ -39,17 +39,17 @@
                              <div class="col-sm-6">
                                  <div class="form-group " style= "width:40%">
                                      <select id="income_year" class="form-control" name="">
-                                         <!-- categoy generation -->
+                                         <option>Text</option>
                                      </select>
                                  </div>
                              </div>
                              <div class="col-sm-6 text-right">
                              <div class="input-group ">
-                                <input type="text" class="form-control newCategory" placeholder="Enter income category">
+                                <input type="text" class="form-control newCategory" placeholder="Enter expense category">
                                 <div class="input-group-append pr-2">
                                     <button class="btn btn-primary save" type="submit">Save</button>
                                 </div>
-                                <button class="btn btn-primary shadow-sm addnew" type="button" data-toggle="modal" data-target="#newIcome"><i class="fas fa-plus fa-1x mr-2"></i> Add Income</button>
+                                <button class="btn btn-primary shadow-sm addnew" type="button" data-toggle="modal" data-target="#newIcome"><i class="fas fa-plus fa-1x mr-2"></i> Add Expense</button>
                              </div>
                              
                              </div>
@@ -61,10 +61,10 @@
                             <thead  >
                                 <tr class="thead">
                                     <th scope = "row" width="2%">#</th>
-                                    <th>Income Category</th>
-                                    <th>Income Amount</th>
-                                    <th>Income date</th>
-                                    <th>Income Description</th>
+                                    <th>Expense Category</th>
+                                    <th>Expense Amount</th>
+                                    <th>Expense date</th>
+                                    <th>Expense Description</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -104,13 +104,13 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Add Income<h4>
+        <h4 class="modal-title">Add Expense<h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <p class="text-center note">(You can add/delete/edit income later as you wish) </p>
+        <p class="text-center note">(You can add/delete/edit expense later as you wish) </p>
         <div class="frmContainer">
             <form action="" method="post">
                 <div class="form-group">
@@ -120,9 +120,9 @@
                     </select>
                 </div>
                 <div>
-                    <label for="decription-other">Income Description:</label>
+                    <label for="decription-other">Enter Description: *</label>
                     <input class="form-control" type="text" name="" id="description" autocomplete="off" required>
-                    <small class="form-text text-muted mb-2">Income description is a optional field. Leave it blank if there is non.</small>
+                    <small class="form-text text-muted mb-2">Please provide a description of this income if any:</small>
                 </div>
                 <div class="mb-2">
                     <label for="Amount mt-2">Amount: *</label>

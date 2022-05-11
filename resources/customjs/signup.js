@@ -42,7 +42,7 @@ $(document).ready(function(){
                         fd.append("password", password);
         
             /** creating xhr request the server */
-                        xhr.open("post", "http://localhost/bta/view/post/signup_post.php", true);
+                        xhr.open("post", "http://localhost/bta/post/signup_post.php", true);
                         xhr.onreadystatechange=function(){
                                     if (xhr.readyState=="4" && xhr.status=="200") //if connection was success
                                     {

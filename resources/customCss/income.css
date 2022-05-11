@@ -2,10 +2,12 @@
 body{
     overflow-x: hidden;
 }
-
 .frmContainer label{
     font-weight: bold;
     font-size: 12;
+}
+.col-lg-10{
+    height:1000px ;
 }
 .note{
     background-color: #FFC482;
@@ -16,7 +18,10 @@ body{
     font-size: 12;  
 }
 .frmContainer input{
-    font-size: 12;
+    font-size: 15;
+    font-weight: bold;
+}
+#category{
     font-weight: bold;
 }
 .frmContainer input:focus{
@@ -28,7 +33,7 @@ body{
     box-shadow: none;
 }
 #description{
-    font-size: 12;
+    font-size: 15px;
     font-weight: bold;
 }
 .btnAdd{
@@ -44,7 +49,7 @@ body{
     font-weight: bold;
 }
 .btnEdit{
-    background-color: #FFC482;
+    background-color: #2B3A67;
     color: #FFF ;
     font-weight: bold;
 }
@@ -68,6 +73,9 @@ tr.thead{
     background-color: #2B3A67;
     color: #fff;
 }
+table tr {
+    text-align: center;
+}
 .btn.btn-primary.shadow-sm:hover {
     box-shadow: 5px 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
@@ -75,6 +83,19 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
     margin: 0; 
+}
+.pagination{
+    font-size: 12px !important;
+}
+.dataTables_info{
+    font-size: 12px !important;
+}
+.dataTables_length{
+    font-size: 12px !important;
+}
+tr.odd{
+    padding:3px !important;
+  
 }
 input[type=number] {
     -moz-appearance:textfield;
@@ -102,4 +123,19 @@ input[type=number] {
     box-shadow: none;
     font-size: 17px;
 
+}
+#feedback{
+    color:red;
+}
+.btn.btn-secondary.action,.btn.btn-danger.action{
+    width: fit-content ;
+    height: auto ;
+    font-size: 12px ;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+#transaction_date{
+    padding-left: 4px !important;
 }
